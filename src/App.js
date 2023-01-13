@@ -3,13 +3,21 @@ import GlobalStyle from "./components/GlobalStyle";
 //importing pages
 import AboutUs from "./pages/AboutUs";
 import Nav from "./components/Nav";
-
+import OurWork from "./pages/OurWork";
+import ContactUs from "./pages/ContactUs";
+import { Switch, Routes, Route } from "react-router-dom";
+import NotFound from "./components/NotFound";
 function App() {
     return (
         <div className="App">
             <GlobalStyle />
             <Nav />
-            <AboutUs />
+            <Routes>
+                <Route path="/" element={<AboutUs />} />
+                <Route path="/work" element={<OurWork />} />
+                <Route path="/contact" element={<ContactUs />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
         </div>
     );
 }
