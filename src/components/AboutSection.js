@@ -1,26 +1,27 @@
 import React from "react";
 import home1 from "../img/home1.png";
-// import styled
-// import Styled from "styled-components";
 import { About, Discreption, Hide, Image } from "../styles";
+
+// FRAMER MOTION
+import { motion } from "framer-motion";
 
 const AboutSection = () => {
     return (
         <About>
             <Discreption>
-                <div className="title">
+                <motion.div className="title">
                     <Hide>
-                        <h2>We work to Make</h2>
+                        <motion.h2>We work to Make</motion.h2>
                     </Hide>
                     <Hide>
-                        <h2>
+                        <motion.h2>
                             Your <span>dreams</span> come
-                        </h2>
+                        </motion.h2>
                     </Hide>
                     <Hide>
-                        <h2>true.</h2>
+                        <motion.h2>true.</motion.h2>
                     </Hide>
-                </div>
+                </motion.div>
                 <p>
                     Contact us for any photography ideas that you have. We have
                     professionals with skills
