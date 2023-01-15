@@ -4,22 +4,24 @@ import { About, Discreption, Hide, Image } from "../styles";
 
 // FRAMER MOTION
 import { motion } from "framer-motion";
-
+import { titleAnimation } from "../animation";
 const AboutSection = () => {
     return (
         <About>
             <Discreption>
                 <motion.div className="title">
                     <Hide>
-                        <motion.h2>We work to Make</motion.h2>
+                        <motion.h2 variants={titleAnimation}>
+                            We work to Make
+                        </motion.h2>
                     </Hide>
                     <Hide>
-                        <motion.h2>
+                        <motion.h2 variants={titleAnimation}>
                             Your <span>dreams</span> come
                         </motion.h2>
                     </Hide>
                     <Hide>
-                        <motion.h2>true.</motion.h2>
+                        <motion.h2 variants={titleAnimation}>true.</motion.h2>
                     </Hide>
                 </motion.div>
                 <p>
