@@ -4,7 +4,7 @@ import { About, Discreption, Hide, Image } from "../styles";
 
 // FRAMER MOTION
 import { motion } from "framer-motion";
-import { titleAnimation } from "../animation";
+import { titleAnimation, fade, photoAnim } from "../animation";
 const AboutSection = () => {
     return (
         <About>
@@ -24,14 +24,18 @@ const AboutSection = () => {
                         <motion.h2 variants={titleAnimation}>true.</motion.h2>
                     </Hide>
                 </motion.div>
-                <p>
+                <motion.p variants={fade}>
                     Contact us for any photography ideas that you have. We have
                     professionals with skills
-                </p>
-                <button>contact us</button>
+                </motion.p>
+                <motion.button variants={fade}>contact us</motion.button>
             </Discreption>
             <Image>
-                <img src={home1} alt="guy with a camera" />
+                <motion.img
+                    variants={photoAnim}
+                    src={home1}
+                    alt="guy with a camera"
+                />
             </Image>
         </About>
     );
