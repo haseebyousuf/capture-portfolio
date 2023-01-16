@@ -15,6 +15,7 @@ export const About = Styled.div`
 
 export const Discreption = Styled.div`
     flex: 1;
+    z-index:2;
     padding-right: 5rem;
     h2{
         font-weight:lighter;
@@ -29,6 +30,7 @@ export const Discreption = Styled.div`
 `;
 
 export const Image = Styled.div`
+    z-index:2;
     flex:1;
     overflow: hidden;
     img {
