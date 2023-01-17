@@ -10,7 +10,6 @@ import Toggle from "./Toggle";
 const FaqSection = () => {
     const controls = useAnimation();
     const [element, view] = useInView({ threshold: 0.3 });
-    console.log(view);
 
     useEffect(() => {
         if (view) {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Styled from "styled-components";
 import { useLocation } from "react-router-dom";
+import ScrollTop from "../components/ScrollTop";
 import { MovieState } from "../movieState";
-
 
 //animations
 import { motion } from "framer-motion";
@@ -24,7 +24,12 @@ const MovieDetail = () => {
     return (
         <>
             {movie && (
-                <Details variants={pageAnimation} initial="hidden" animate="show" exit="exit">
+                <Details
+                    variants={pageAnimation}
+                    initial="hidden"
+                    animate="show"
+                    exit="exit"
+                >
                     <HeadLine>
                         <h2>{movie.title}</h2>
                         <img src={movie.mainImg} alt="movie" />
@@ -41,6 +46,7 @@ const MovieDetail = () => {
                     <ImageDisplay>
                         <img src={movie.secondaryImg} alt="movie" />
                     </ImageDisplay>
+                    <ScrollTop />
                 </Details>
             )}
         </>

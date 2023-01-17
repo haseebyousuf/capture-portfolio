@@ -18,7 +18,6 @@ import { useAnimation } from "framer-motion";
 const ServicesSection = () => {
     const controls = useAnimation();
     const [element, view] = useInView({ threshold: 0.3 });
-    console.log(view);
 
     useEffect(() => {
         if (view) {
