@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Styled from "styled-components";
-import { AnimateSharedLayout } from "framer-motion";
+import { AnimateSharedLayout, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 // import styles
 import { About } from "../styles";
 //import toggle for faq
 import Toggle from "./Toggle";
 
 const FaqSection = () => {
+    const controls = useAnimation();
+    const [element, view] = useInView({ threshold: 0.3 });
+    console.log(view);
+
+    useEffect(() => {
+        if (view) {
+            controls.start({
+                opacity: 1,
+                scale: 1,
+                transition: {
+                    duration: 0.5,
+                },
+            });
+        }
+        if (!view) {
+            controls.start({
+                opacity: 0,
+                scale: 1.2,
+                transition: {
+                    duration: 0.5,
+                },
+            });
+        }
+    }, [view, controls]);
     return (
-        <Faq>
+        <Faq ref={element} animate={controls}>
             <h2>
                 Any Questions <span>FAQ</span>
             </h2>

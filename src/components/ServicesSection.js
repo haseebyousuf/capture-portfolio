@@ -10,30 +10,39 @@ import home2 from "../img/home2.png";
 
 import { About, Discreption, Image } from "../styles";
 import Styled from "styled-components";
-import { fade } from "../animation";
+// import { srcollReveal } from "../animation";
 
 import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
 
 const ServicesSection = () => {
     const controls = useAnimation();
-    const [element, view] = useInView({ threshold: 0.5 });
+    const [element, view] = useInView({ threshold: 0.3 });
+    console.log(view);
 
     useEffect(() => {
         if (view) {
-            controls.start("show");
-        } else {
-            controls.start("hide");
+            controls.start({
+                opacity: 1,
+                scale: 1,
+                transition: {
+                    duration: 0.5,
+                },
+            });
+        }
+        if (!view) {
+            controls.start({
+                opacity: 0,
+                scale: 1.2,
+                transition:{
+                    duration:0.5
+                }
+            });
         }
     }, [view, controls]);
 
     return (
-        <Services
-            varients={fade}
-            animate={controls}
-            initial="hidden"
-            ref={element}
-        >
+        <Services ref={element} animate={controls}>
             <Discreption>
                 <h2>
                     High <span> quality</span> services.
