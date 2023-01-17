@@ -1,17 +1,39 @@
-import React from "react";
-// import styled
-import Styled from "styled-components";
-// import styles
-import { About, Discreption, Image } from "../styles"; 
-//import icons
+import React, { useEffect } from "react";
+//Import Icons
 import clock from "../img/clock.svg";
-import diaphrafm from "../img/diaphragm.svg";
+import diaphragm from "../img/diaphragm.svg";
 import money from "../img/money.svg";
 import teamwork from "../img/teamwork.svg";
+
+//Import Images
 import home2 from "../img/home2.png";
+
+import { About, Discreption, Image } from "../styles";
+import Styled from "styled-components";
+import { fade } from "../animation";
+
+import { useInView } from "react-intersection-observer";
+import { useAnimation } from "framer-motion";
+
 const ServicesSection = () => {
+    const controls = useAnimation();
+    const [element, view] = useInView({ threshold: 0.5 });
+
+    useEffect(() => {
+        if (view) {
+            controls.start("show");
+        } else {
+            controls.start("hide");
+        }
+    }, [view, controls]);
+
     return (
-        <Services>
+        <Services
+            varients={fade}
+            animate={controls}
+            initial="hidden"
+            ref={element}
+        >
             <Discreption>
                 <h2>
                     High <span> quality</span> services.
@@ -22,36 +44,28 @@ const ServicesSection = () => {
                             <img src={clock} alt="icon" />
                             <h3>Efficient</h3>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet.</p>
                     </Card>
                     <Card>
                         <div className="icon">
                             <img src={teamwork} alt="icon" />
                             <h3>Teamwork</h3>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet.</p>
                     </Card>
                     <Card>
                         <div className="icon">
-                            <img src={diaphrafm} alt="icon" />
+                            <img src={diaphragm} alt="icon" />
                             <h3>diaphrafm</h3>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet.</p>
                     </Card>
                     <Card>
                         <div className="icon">
                             <img src={money} alt="icon" />
                             <h3>money</h3>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet.</p>
                     </Card>
                 </Cards>
             </Discreption>
