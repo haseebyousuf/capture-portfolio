@@ -8,6 +8,7 @@ export const About = Styled(motion.div)`
     padding: 5rem 8rem;
     color: white;
     @media (max-width: 1300px) {
+        overflow-x: hidden;
         display: block;
         padding: 2rem 2rem;
         text-align: center;
@@ -26,7 +27,6 @@ export const Discreption = Styled.div`
         button {
             margin: 2rem 0rem 5rem 0rem;
         }
-        /* text-align: center; */
     }
 `;
 
